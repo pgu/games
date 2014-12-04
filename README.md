@@ -1,6 +1,7 @@
 games
 =====
 
+[website](http://pgu.github.io/games)
 
 github deploy [dist](http://yeoman.io/learning/deployment.html)
 
