@@ -12,8 +12,13 @@ angular.module('gamesApp')
 
     $http.get('http://games.apispark.net/v1/pictures/')
       .then(function (response) {
-        $scope.pictures = response.data;
-        console.log($scope.pictures);
+
+        var pictures = response.data.list;
+
+        $scope.covers = _.filter(pictures, function(picture) {
+          return picture.is_cover === 'TRUE';
+        });
+
       });
 
   });

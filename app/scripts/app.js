@@ -31,7 +31,7 @@ angular
 
   .run(function ($http) {
 
-    var encoded = btoa('a317c189-4849-40d1-8606-b0c08842316a:c9cb44e4-8bb0-4de5-b3c8-4595edaf22e6');
+    var encoded = btoa('a317c189-4849-40d1-8606-b0c08842316a:d85f54ee-448b-41ea-999b-f9e322d77001');
     $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
 
   })
