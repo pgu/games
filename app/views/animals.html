@@ -4,11 +4,20 @@
        ng-repeat="cover in covers">
 
     <a class="thumbnail"
-       ng-click="displayAnimal(cover)">
+       style="cursor: pointer;"
+       ng-click="displayAnimal(cover, pictures)">
+
       <img ng-src="{{ cover.url }}"
            style="max-height: 200px;">
     </a>
 
+  </div>
+
+  <div ng-if="selectedAnimalPicture.url"
+       class="animate-if">
+    <img ng-src="{{ selectedAnimalPicture.url }}"
+         class="full_screen_picture"
+         ng-click="removeSelectedAnimalPicture()">
   </div>
 
 </div>

@@ -15,7 +15,7 @@ angular.module('gamesApp')
 
         var raw_pictures = response.data.list;
 
-        var pictures = _.map(raw_pictures, function (raw_picture) {
+        $scope.pictures = _.map(raw_pictures, function (raw_picture) {
 
           var tags = raw_picture.tags.split(',');
 
@@ -39,14 +39,27 @@ angular.module('gamesApp')
           }, _.cloneDeep(raw_picture));
         });
 
-        $scope.covers = _.filter(pictures, function (picture) {
+        $scope.covers = _.filter($scope.pictures, function (picture) {
           return picture.is_cover === 'TRUE';
         });
 
       });
 
-    $scope.displayAnimal = function (picture) {
-      console.log(picture);
+    $scope.displayAnimal = function (selectedPicture, pictures) {
+
+      var selectedAnimalPictures = _.filter(pictures, function (picture) {
+        return picture.animal === selectedPicture.animal;
+      });
+
+      var idx = _.random(0, _(selectedAnimalPictures).size() - 1);
+      $scope.selectedAnimalPicture = selectedAnimalPictures[idx];
+      console.info($scope.selectedAnimalPicture);
+
     };
+
+    $scope.removeSelectedAnimalPicture = function () {
+      $scope.selectedAnimalPicture = null;
+    };
+
 
   });
