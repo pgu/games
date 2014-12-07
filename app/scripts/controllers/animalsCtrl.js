@@ -13,12 +13,40 @@ angular.module('gamesApp')
     $http.get('http://games.apispark.net/v1/pictures/')
       .then(function (response) {
 
-        var pictures = response.data.list;
+        var raw_pictures = response.data.list;
 
-        $scope.covers = _.filter(pictures, function(picture) {
+        var pictures = _.map(raw_pictures, function (raw_picture) {
+
+          var tags = raw_picture.tags.split(',');
+
+          var keys_values = _.map(tags, function (tag) {
+            var keyValue = tag.split(':');
+
+            var key = keyValue[0].trim();
+            var val = keyValue[1].trim();
+
+            var kv = {};
+            kv[key] = val;
+            return kv;
+
+          });
+
+          return _.reduce(keys_values, function (picture, key_value) {
+
+            _.merge(picture, key_value);
+            return picture;
+
+          }, _.cloneDeep(raw_picture));
+        });
+
+        $scope.covers = _.filter(pictures, function (picture) {
           return picture.is_cover === 'TRUE';
         });
 
       });
+
+    $scope.displayAnimal = function (picture) {
+      console.log(picture);
+    };
 
   });

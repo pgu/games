@@ -3,7 +3,8 @@
   <div class="col-xs-6"
        ng-repeat="cover in covers">
 
-    <a class="thumbnail">
+    <a class="thumbnail"
+       ng-click="displayAnimal(cover)">
       <img ng-src="{{ cover.url }}"
            style="max-height: 200px;">
     </a>
