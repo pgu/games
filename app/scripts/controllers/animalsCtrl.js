@@ -8,7 +8,7 @@
  * Controller of the gamesApp
  */
 angular.module('gamesApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('AnimalsCtrl', function ($scope, $http) {
 
     $http.get('http://games.apispark.net/v1/pictures/')
       .then(function (response) {
