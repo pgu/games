@@ -1,6 +1,7 @@
 <div class="row">
 
   <div class="col-xs-6"
+       ng-if="!selectedAnimalPicture"
        ng-repeat="cover in covers">
 
     <a class="thumbnail"
@@ -13,7 +14,7 @@
 
   </div>
 
-  <div ng-if="selectedAnimalPicture.url"
+  <div ng-if="selectedAnimalPicture"
        class="animate-if">
     <img ng-src="{{ selectedAnimalPicture.url }}"
          class="full_screen_picture"
