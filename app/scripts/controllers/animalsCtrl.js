@@ -47,6 +47,8 @@ angular.module('gamesApp')
 
     $scope.displayAnimal = function (selectedPicture, pictures) {
 
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+
       var selectedAnimalPictures = _.filter(pictures, function (picture) {
         return picture.animal === selectedPicture.animal;
       });
