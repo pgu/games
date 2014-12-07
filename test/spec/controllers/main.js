@@ -13,7 +13,7 @@ describe('Controller: MainCtrl', function () {
 
     scope = $rootScope.$new();
 
-    MainCtrl = $controller('MainCtrl', {
+    MainCtrl = $controller('AnimalsCtrl', {
       $scope: scope
     });
 
