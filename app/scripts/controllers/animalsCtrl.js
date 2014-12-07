@@ -53,7 +53,6 @@ angular.module('gamesApp')
 
       var idx = _.random(0, _(selectedAnimalPictures).size() - 1);
       $scope.selectedAnimalPicture = selectedAnimalPictures[idx];
-      console.info($scope.selectedAnimalPicture);
 
     };
 
